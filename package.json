@@ -12,7 +12,6 @@
     "format:check": "prettier --check . --plugin=prettier-plugin-astro",
     "format": "prettier --write . --plugin=prettier-plugin-astro",
     "cz": "cz",
-    "prepare": "husky install",
     "lint": "eslint ."
   },
   "dependencies": {
