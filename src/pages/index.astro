@@ -47,12 +47,18 @@ const socialCount = SOCIALS.filter(social => social.active).length;
       <p>Focusing on web development, AIGC, and LLM Infra.</p>
       <br>
       <p>
-        Read the blog posts or visit my
+        Read the 
+        <LinkButton 
+          className="underline decoration-dashed underline-offset-4 hover:text-skin-accent"
+          href="/tools"
+        >
+          blog posts
+        </LinkButton> or visit the tools I use
         <LinkButton
           className="underline decoration-dashed underline-offset-4 hover:text-skin-accent"
-          href="https://github.com/RealTong/"
+          href="/tools"
         >
-          Github
+          Tools
         </LinkButton> for more info.
       </p>
       {
