@@ -1,7 +1,7 @@
 ---
 author: RealTong
 pubDatetime: 2022-07-21T15:22:00Z
-modDatetime: 2023-12-21T09:12:47.400Z
+modDatetime: 2022-07-21T15:22:00Z
 title: 使用 WireGuard 部署私人 VPN
 slug: deploy-wireguard
 featured: false
@@ -219,7 +219,7 @@ AllowedIPs = 10.0.0.5/32, 192.168.1.0/24
 
 ### 一些建议
 
-1. 服务器防火墙只放开 UDP 的 WireGuard 端口
+1. 服务器防火墙只放开 UDP 的 WireGuard 端口x
 2. 建议不要使用默认的 51820 端口
 3. 不要再 WireGuard 中出现相同的网段
 4. 建议再路由器上使用 WireGuard, 这样路由器下其他设备不需要安装 WireGuard 也可以访问所有的内网（WireGuard 还比较年轻, 一些路由器还不支持WireGuard. 可以自己编译 OpenWRT 路由系统）

@@ -126,6 +126,13 @@ declare module 'astro:content' {
 
 	type ContentEntryMap = {
 		"blog": {
+"2023-python-package-best-practices.md": {
+	id: "2023-python-package-best-practices.md";
+  slug: "2023-python-package-best-practices";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "adding-new-post.md": {
 	id: "adding-new-post.md";
   slug: "adding-new-posts-in-astropaper-theme";
@@ -136,6 +143,13 @@ declare module 'astro:content' {
 "deploy-wireguard.md": {
 	id: "deploy-wireguard.md";
   slug: "deploy-wireguard";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"develop-tailwind-plugin.md": {
+	id: "develop-tailwind-plugin.md";
+  slug: "develop-tailwind-plugin";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
