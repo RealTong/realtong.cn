@@ -17,6 +17,8 @@ const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
 const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
 
 const socialCount = SOCIALS.filter(social => social.active).length;
+
+const myAge = Math.floor((Date.now() - (new Date(2002,7,20)).getTime()) / (365.25 * 24 * 60 * 60 * 1000));
 ---
 
 <Layout>
@@ -42,7 +44,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
       </a>
 
       <p>
-        A 21 y.o. Full Stack Developer living in Shanxi, China.
+        A {myAge} y.o. Full Stack Developer living in Shanxi, China.
       </p>
       <p>Focusing on web development, AIGC, and LLM Infra.</p>
       <br>
