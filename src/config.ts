@@ -5,7 +5,7 @@ export const SITE: Site = {
   author: "RealTong",
   desc: "RealTong's Blog",
   title: "RealTong's Blog",
-  ogImage: "astropaper-og.jpg",
+  ogImage: "site-og.png",
   lightAndDarkMode: true,
   postPerPage: 5,
   scheduledPostMargin: 30 * 60 * 1000, // 15 minutes
