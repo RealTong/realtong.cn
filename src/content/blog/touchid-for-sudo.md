@@ -1,7 +1,7 @@
 ---
 author: RealTong
 pubDatetime: 2024-02-17T08:15:00Z
-modDatetime: 2023-02-17T08:18:00Z
+modDatetime: 2024-02-17T08:18:00Z
 title: 使用 Touch ID 为 sudo 添加指纹验证
 slug: touchid-for-sudo
 featured: false
@@ -13,6 +13,7 @@ tags:
 description:
     使用 Touch ID 为 sudo 添加指纹验证
 ---
+
 在 macOS Sonoma (14.0) 上，Apple 为 「使用Touch ID 认证 sudo」提供了开箱即用的支持，只需3行命令即可开启
 
 1. `sudo cp /etc/pam.d/sudo_local.template /etc/pam.d/sudo_local`
