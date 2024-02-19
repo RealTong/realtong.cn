@@ -189,6 +189,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"touchid-for-sudo.md": {
+	id: "touchid-for-sudo.md";
+  slug: "touchid-for-sudo";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 };
 
 	};
