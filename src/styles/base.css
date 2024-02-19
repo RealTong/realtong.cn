@@ -28,6 +28,12 @@
   html[data-theme="dark"] #sun-svg {
     display: block;
   }
+  html[data-theme="light"] #ToolCard {
+    background-color: #F3F4F6
+  }
+  html[data-theme="dark"] #ToolCard {
+    background-color: #1a202c
+  }
   body {
     @apply flex min-h-[100svh] flex-col bg-skin-fill font-mono text-skin-base 
     selection:bg-skin-accent selection:bg-opacity-70 selection:text-skin-inverted;
