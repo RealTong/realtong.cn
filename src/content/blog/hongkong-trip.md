@@ -38,12 +38,13 @@ description:
 
 ## 照片
 
-![网络拓扑图](@assets/images/posts/hongkong-trip/boc-light.jpg)
-![网络拓扑图](@assets/images/posts/hongkong-trip/victoria-harbor-light.jpg)
-![网络拓扑图](@assets/images/posts/hongkong-trip/hotel-rooftop.jpg)
-![网络拓扑图](@assets/images/posts/hongkong-trip/central-subway-station.jpg)
-![网络拓扑图](@assets/images/posts/hongkong-trip/Yau-Ma-Tei.jpg)
-![网络拓扑图](@assets/images/posts/hongkong-trip/k11.jpg)
+![中银大厦夜景](@assets/images/posts/hongkong-trip/boc-light.jpg)
+![维多利亚港夜景](@assets/images/posts/hongkong-trip/victoria-harbor-light.jpg)
+![天星小船](@assets/images/posts/hongkong-trip/tian-xing-xiao-chuan.jpg)
+![酒店楼顶](@assets/images/posts/hongkong-trip/hotel-rooftop.jpg)
+![中环地铁站](@assets/images/posts/hongkong-trip/central-subway-station.jpg)
+![尖沙咀地下通道](@assets/images/posts/hongkong-trip/Yau-Ma-Tei.jpg)
+![k11](@assets/images/posts/hongkong-trip/k11.jpg)
 
 
     
