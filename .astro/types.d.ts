@@ -175,6 +175,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"nextjs-14.md": {
+	id: "nextjs-14.md";
+  slug: "nextjs-14";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "nextjs-sse-guide.md": {
 	id: "nextjs-sse-guide.md";
   slug: "nextjs-sse-guide";
