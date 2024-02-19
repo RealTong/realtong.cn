@@ -133,6 +133,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"40-questions-to-ask-yourself-each-year-2023.md": {
+	id: "40-questions-to-ask-yourself-each-year-2023.md";
+  slug: "40-questions-to-ask-yourself-each-year-2023";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "adding-new-post.md": {
 	id: "adding-new-post.md";
   slug: "adding-new-posts-in-astropaper-theme";
