@@ -17,6 +17,9 @@ import mijiascreenbar from "../assets/images/tools/mijia-screenbar.png";
 import yubikey5cnfc from "../assets/images/tools/yubikey5c.png";
 import yubikey5nfc from "../assets/images/tools/yubikey5.png";
 import jetbrains from "../assets/images/tools/jetbrains.png";
+import githubcopilot from "../assets/images/tools/Github-Copilot.png";
+import chatgptplus from "../assets/images/tools/chatgpt-plus.png";
+import buick from "../assets/images/tools/buick.png";
 
 const tools: Props[] = [
   {
@@ -108,6 +111,21 @@ const tools: Props[] = [
     name: "Jetbrains All Products",
     type: "Services",
     image: jetbrains.src,
+  },
+  {
+    name: "Github Copilot",
+    type: "Services",
+    image: githubcopilot.src,
+  },
+  {
+    name: "ChatGPT Plus",
+    type: "Services",
+    image: chatgptplus.src,
+  },
+  {
+    name: "Buick Verano Pro",
+    type: "Devices",
+    image: buick.src,
   },
 ];
 
