@@ -43,12 +43,6 @@ export const SOCIALS: SocialObjects = [
     active: true,
   },
   {
-    name: "Instagram",
-    href: "https://www.instagram.com/realtong_run/",
-    linkTitle: `${SITE.title} on Instagram`,
-    active: true,
-  },
-  {
     name: "Steam",
     href: "https://steamcommunity.com/profiles/76561199000200043/",
     linkTitle: `${SITE.title} on Steam`,
