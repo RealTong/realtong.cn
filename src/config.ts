@@ -8,7 +8,7 @@ export const SITE: Site = {
   ogImage: "site-og.png",
   lightAndDarkMode: true,
   postPerPage: 10,
-  scheduledPostMargin: 30 * 60 * 1000, // 15 minutes
+  scheduledPostMargin: 15 * 60 * 1000, // 15 minutes
 };
 
 export const LOCALE = {
