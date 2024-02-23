@@ -15,6 +15,8 @@ description:
     SSE 在 NextJS 中的完整指南
 ---
 
+## Table of contents
+
 ### 在阅读此文之前，你可能需要先了解这些知识
 
 - [NextJS API Routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes)

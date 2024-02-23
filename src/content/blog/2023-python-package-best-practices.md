@@ -13,9 +13,11 @@ description:
     2023 年 Python 包最佳实践
 ---
 
+## Table of contents
+
 今年开始😀， 工作的一部分来和 LLM 打交道，自然少不了写 Python 了。
 
-### 目前流行的 Python 的包管理方案
+## 目前流行的 Python 的包管理方案
 
 - venv
 - Conda
@@ -66,7 +68,7 @@ Anaconda 中内置了一个 Python 解释器，同时还内置了许多常用的
 - 不能记录依赖
 - 不能锁定依赖版本
 
-**这些问题，poetry都能解决！**
+## 这些问题，poetry都能解决！
 
 使用 poetry 
 

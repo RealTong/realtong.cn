@@ -13,6 +13,7 @@ description:
     NextJS 14 新特性总结
 ---
 
+## Table of contents
 
 ## 开始
 Next.js 14 推出了新的 App router ，Server component 和 Streaming 等新特性。
@@ -122,7 +123,7 @@ export default function Posts() {
 ![loading-special-file](@assets/images/posts/nextjs-14/loading-special-file.avif)
 ![loading-overview](@assets/images/posts/nextjs-14/loading-overview.avif)
 
-### 获取数据和缓存
+### Fetch & Cache
 NextJS 14 引入了非常复杂的缓存机制，用于获取数据和缓存。并且 NextJS 默认情况下会缓存所有获取的数据。
 
 如果使用 fetch 获取数据，可以使用 revalidate 或者 {cache: 'no-store'} 来设置缓存时间。

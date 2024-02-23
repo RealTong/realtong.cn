@@ -12,6 +12,9 @@ tags:
 description:
     自动签发 Google 提供的免费 SSL 证书
 ---
+
+## Table of contents
+
 Google 去年[宣布](https://cloud.google.com/blog/products/identity-security/automate-public-certificate-lifecycle-management-via--acme-client-api)推出了免费的公共证书服务，和 Let's Encrypt 一样，最高支持 90 天有效期。
 
 一些特性:
