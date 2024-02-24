@@ -14,6 +14,7 @@ import airpods2 from "../assets/images/tools/airpods2.png";
 import airpodspro2typec from "../assets/images/tools/AirPodsPro2-Type-C.png";
 import chromecast from "../assets/images/tools/chromecast.png";
 import mijiascreenbar from "../assets/images/tools/mijia-screenbar.png";
+import canysign4typec from "../assets/images/tools/canysign-4-typec.png";
 import yubikey5cnfc from "../assets/images/tools/yubikey5c.png";
 import yubikey5nfc from "../assets/images/tools/yubikey5.png";
 import jetbrains from "../assets/images/tools/jetbrains.png";
@@ -96,6 +97,11 @@ const tools: Props[] = [
     name: "MiJia ScreenBar",
     type: "Accessories",
     image: mijiascreenbar.src,
+  },
+  {
+    name: "硬糖120W小电拼",
+    type: "Accessories",
+    image: canysign4typec.src,
   },
   {
     name: "Yubikey 5C NFC",
