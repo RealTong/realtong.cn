@@ -13,6 +13,8 @@ tags:
   - WireGuard
 description:
   WireGuard 是一个快速、现代、安全的 VPN 协议，我将搭建一个贯穿 Home，Office，Cloud 的 WireGuard 网络。
+summary:
+    这篇博文介绍了通过 WireGuard 实现远程开发的方法。作者比较了各种方案，包括向日葵、frp、VPN 等，然后详细介绍了 WireGuard 的优势，如跨平台、简单配置、安全性等。接着，作者提供了配置 WireGuard 的步骤，包括安装、启动、编辑配置文件等，并给出了一些建议，如防火墙设置、端口选择等。最后，作者附上了参考链接，包括自己的配置示例和其他博客链接。
 ---
 > 从 2023.12.21 穿越回来，文章从我的 Noiton 迁移过来，可能年久失修，但是内容还是有参考价值的。
 

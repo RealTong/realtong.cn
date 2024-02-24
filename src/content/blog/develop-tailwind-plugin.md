@@ -12,6 +12,8 @@ tags:
   - Frond-end
 description:
     为 TailwindCSS 开发显示屏幕尺寸插件
+summary:
+    文章介绍了如何使用 TailwindCSS 插件开发一个在浏览器中显示当前屏幕尺寸的工具。通过添加自定义的 CSS 类和伪元素 ::before，结合 TailwindCSS 的功能，实现了在页面右下角显示当前屏幕尺寸的功能。同时，作者提供了使用方法和在开发环境下的设置建议。
 ---
 ## Table of contents
 

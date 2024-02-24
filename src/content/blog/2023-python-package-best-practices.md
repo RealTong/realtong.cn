@@ -11,6 +11,8 @@ tags:
   - Python
 description:
     2023 年 Python 包最佳实践
+summary:
+    这篇博客介绍了三种流行的 Python 包管理工具：venv、Conda 和 Poetry。venv 简单易用但跨平台存在问题，Conda 内置功能繁多占用空间，而 Poetry 则是更好的选择。Poetry 简洁强大，统一了创建、管理和发布 Python 包的流程，自动记录依赖并锁定版本，避免磁盘空间浪费。推荐开发者尝试使用 Poetry，以获得更愉快、高效的开发体验。
 ---
 
 ## Table of contents

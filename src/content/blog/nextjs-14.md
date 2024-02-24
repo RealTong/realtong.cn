@@ -11,6 +11,8 @@ tags:
   - Free service
 description:
     NextJS 14 新特性总结
+summary:
+    NextJS 新版本（14）推出了 App Router、Server Component 和 Streaming 等新特性。App router 提供新的路由系统，可以与原有的 Page router 混合使用，便于管理页面。Server component 提升了安全性和性能，支持缓存和流式渲染。Streaming 可以解决页面因请求延迟而卡顿的问题。Fetch & Cache 引入了复杂的缓存机制，可通过设置 revalidate 或 no-store 控制缓存。Server Action 允许在服务端执行代码，用于处理客户端提交的数据。
 ---
 
 ## Table of contents
