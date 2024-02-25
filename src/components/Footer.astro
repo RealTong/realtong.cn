@@ -1,6 +1,7 @@
 ---
 import Hr from "./Hr.astro";
 import Socials from "./Socials.astro";
+import {get3minActiveUsers} from "../utils/umami";
 
 const currentYear = new Date().getFullYear();
 
@@ -9,6 +10,8 @@ export interface Props {
 }
 
 const { noMarginTop = false } = Astro.props;
+
+const x = await get3minActiveUsers();
 ---
 
 <footer class={`${noMarginTop ? "" : "mt-auto"}`}>
@@ -20,7 +23,7 @@ const { noMarginTop = false } = Astro.props;
       <span class="separator">&nbsp;|&nbsp;</span>
       <span>All rights reserved.</span>
       <span class="separator">&nbsp;|&nbsp;</span>
-      <span>当前正在被 1 人访问</span>
+      <span>当前正在被 {x? x : 0} 人访问</span>
     </div>
   </div>
 </footer>
