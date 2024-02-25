@@ -49,3 +49,9 @@ export const SOCIALS: SocialObjects = [
     active: true,
   }
 ];
+
+export const UMAMI = {
+  enable: true,
+  baseURL: "https://umami.realtong.cn",
+  websiteID: "7eb45700-819a-4fc5-bfff-9025e988c1c2",
+}

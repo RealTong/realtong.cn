@@ -1,5 +1,5 @@
 ---
-import { LOCALE, SITE } from "@config";
+import { LOCALE, SITE,UMAMI } from "@config";
 import "@styles/base.css";
 import { ViewTransitions } from "astro:transitions";
 
@@ -108,7 +108,15 @@ const socialImageURL = new URL(
     <ViewTransitions />
 
     <script is:inline src="/toggle-theme.js"></script>
-    <script async src="https://umami.realtong.cn/script.js" data-website-id="7eb45700-819a-4fc5-bfff-9025e988c1c2"></script>
+    {
+      UMAMI.enable && (
+        <script
+          async
+          data-website-id={UMAMI.websiteID}
+          src={`${UMAMI.baseURL}/script.js`}
+        ></script>
+      )
+    }
   </head>
   <body>
     <slot />
