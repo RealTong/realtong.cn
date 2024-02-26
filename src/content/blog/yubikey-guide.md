@@ -11,8 +11,7 @@ tags:
   - SSH
   - PGP
 description:
-  Some rules & recommendations for creating or adding new posts using AstroPaper
-  theme.
+    YubiKey 入门指南，介绍如何使用 YubiKey 进行 SSH 登录、commit 签名等操作。
 ---
 
 ## Table of contents
