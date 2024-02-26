@@ -15,6 +15,8 @@ description:
   theme.
 ---
 
+## Table of contents
+
 ## YubiKey 功能简介
 YubiKey 目前支持 WebAuthn、FIDO2 CTAP1、FIDO2 CTAP2、Universal 2nd Factor (U2F)、Smart card (PIV-compatible)、Yubico OTP、OATH – HOTP (Event)、OATH – TOTP (Time)、Open PGP、Secure Static Password 等多种功能。其中 FIDO2、2FA 和 U2F 是用于身份验证的功能，OpenPGP 和 PIV 是用于加密和签名的功能，OTP 是用于一次性密码的功能。
 
@@ -110,4 +112,17 @@ Host myHost
 ```
 
 ## 将 YubiKey 用于 commit 签名
-TODO
+1. `gpg --list-secret-keys --keyid-format LONG` 获取 GPG key ID
+2. `git config --global user.signingkey XXXXXXXXXXX` 设置每次 commit 使用的 GPG key ID
+3. 在 Github > Settings > SSH and GPG keys > New GPG key 中添加 GPG key
+4. `git commit` 每次 commit 都会弹出一个窗口，提示你输入 YubiKey 的 PIN 码，输入正确的 PIN 码后，就可以提交了。经过签名的 commit 显示一个小绿锁。
+
+
+## 小 Tips
+- 如果你的 YubiKey 丢失了，并且没有备份，那么你就准备跑路吧。
+- 上传到 Github 的 GPG public key 可以通过 `curl https://github.com/RealTong.gpg | gpg --import` 导入到本地。
+- 上传到 Github 的 SSH public key 可以通过 `curl https://github.com/RealTong.keys ` 获取
+
+## 参考 
+- [YubiKey 使用指南](https://developers.yubico.com/PIV/Guides/Securing_SSH_with_OpenPGP_or_PIV.html)
+- [YubiKey Guide](https://github.com/drduh/YubiKey-Guide)
