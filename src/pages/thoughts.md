@@ -3,6 +3,9 @@ layout: ../layouts/ThoughtsLayout.astro
 title: "Thoughts"
 ---
 
+## At 2023-02-26
+端侧模型都是为了节约成本的，不能作为独立解决问题的合适方案。
+
 ## At 2023-02-19
 小地方的人 或者实体，相比较于大城市，缺少基本的契约精神。
 
