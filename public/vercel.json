@@ -1,0 +1,7 @@
+{
+    "redirects": [
+      { "source": "/blog", "destination": "/posts", "permanent": false },
+      { "source": "/github", "destination": "https://github.com/RealTong"},
+      { "source": "/repo", "destination": "https://github.com/RealTong/realtong.cn"}
+    ]
+  }
