@@ -168,6 +168,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"home-dns-configuration.md": {
+	id: "home-dns-configuration.md";
+  slug: "dns-configuration";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "hongkong-trip.md": {
 	id: "hongkong-trip.md";
   slug: "hongkong-trip";
@@ -199,6 +206,13 @@ declare module 'astro:content' {
 "touchid-for-sudo.md": {
 	id: "touchid-for-sudo.md";
   slug: "touchid-for-sudo";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"what-s-in-my-raycast.md": {
+	id: "what-s-in-my-raycast.md";
+  slug: "what-s-in-my-raycast";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
