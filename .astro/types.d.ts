@@ -147,6 +147,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"authentik-sso.md": {
+	id: "authentik-sso.md";
+  slug: "authentik-sso";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "deploy-wireguard.md": {
 	id: "deploy-wireguard.md";
   slug: "deploy-wireguard";
