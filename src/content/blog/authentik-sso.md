@@ -19,7 +19,7 @@ description:
 
 ## 什么是 Authentik
 
-(Authentik)[http://github.com/goauthentik/authentik/]  是一个开源的认证服务提供商，类似的服务还有 Authing，0auth，Auth0 等。Authentik 提供了一个 Web 界面，可以用于管理用户、登录、授权等功能。
+[Authentik](http://github.com/goauthentik/authentik/)  是一个开源的认证服务提供商，类似的服务还有 Authing，0auth，Auth0 等。Authentik 提供了一个 Web 界面，可以用于管理用户、登录、授权等功能。
 
 ## 环境介绍
 
