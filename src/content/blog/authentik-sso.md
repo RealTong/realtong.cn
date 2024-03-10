@@ -21,6 +21,8 @@ description:
 
 [Authentik](http://github.com/goauthentik/authentik/)  是一个开源的认证服务提供商，类似的服务还有 Authing，0auth，Auth0 等。Authentik 提供了一个 Web 界面，可以用于管理用户、登录、授权等功能。
 
+![Authentik Dashboard](@assets/images/posts/authentik-sso/dashboard.png)
+
 ## 环境介绍
 
 我的 HomeLab 宿主机是一个 N5105 的 All in one，安装了 PVE(Proxmox VE) 虚拟了一个 OpenWRT、Ubuntu server。
@@ -94,7 +96,7 @@ networks:
 我在 Docker 里创建了一个 Network（service_network），用于所有容器之间的通信，这样就可以使用容器名来访问其他容器了。
 
 使用上面的 docker-compose.yml 文件，可以创建一个 Authentik 服务。同时可以为 Authentik 服务配置一个 Nginx 反向代理，用于 HTTPS 访问。
-```plaintext
+```nginx
 upstream auth {
   zone auth 64k;
   server sauthentik-server:9000;
@@ -223,6 +225,58 @@ auto_login = false
 我这里的意思是说，如果用户在 Authentik 的用户组中有 `HomeLabOwner`，那么就给他 `Admin` 权限，如果用户在 Authentik 的用户组中有 `HomeLabVisitor`，那么就给他 `Viewer` 权限。
 
 这样就可以为 Grafana 添加 SSO 支持了。
+
+### HomeAssistant
+由于 HomeAssistant 并不支持 SSO，但是我们想要用 Authentik 的用户来登录 HomeAssistant，所以我们可以使用 Authentik 提供的 ProxyProvider 来为 HomeAssistant 添加 Authentik 的支持。
+
+1. 我们需要在 Authentik 的 Web 界面中，点击 `管理员界面` -> `提供程序` -> 选择`Proxy Provider`，填写 `名称`、`内部地址`、`外部地址`。
+
+其中 `内部地址` 是私有地址，`外部地址` 是访问 HomeAssistant 的地址。
+
+2. 我们按照老方法创建一个应用程序，提供程序选择刚才创建的 ProxyProvider。
+
+3. 在 Authentik 的 Web 界面中，点击 `管理员界面` -> `应用程序` -> `前哨`，编辑默认的前哨，将刚才创建的应用程序添加到默认的前哨中。
+
+4. 使用 HACS 安装 https://github.com/BeryJu/hass-auth-header 这个插件。在 HACS 添加这个存储库，然后搜索 `auth-header` 安装。
+
+5. 编辑 configuration.yaml 文件，添加如下配置。
+```yaml
+default_config:
+
+# Load frontend themes from the themes folder
+frontend:
+  themes: !include_dir_merge_named themes
+
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+# 添加这 2 行
+auth_header:
+    username_header: X-ak-hass-user
+http:
+  use_x_forwarded_for: true
+  trusted_proxies:
+    - ::1
+    - 127.0.0.1
+    - 10.0.0.0/24
+    - 10.0.1.0/24
+    - 172.0.0.0/8
+```
+6. 编辑 Nginx 配置文件，将 ha 域名指向 Authentik。修改这里的部分
+```diff
+upstream ha {
+  zone ha 64k;
+- server homeassistant:8123; 
++ server authentik-server:9000;
+  keepalive 2;
+}
+```
+
+7. 最后，还需要为 Authentik 的用户添加一个属性
+```yaml
+additionalHeaders:
+  X-ak-hass-user: root # root 为 HomeAssistant 的用户名haauth
+```
 
 ## 总结
 Authentik 是一个很好用的 SSO 解决方案，可以为自部署服务添加 SSO 支持。但是配置起来还是有一些麻烦的地方，比如证书的问题，还有一些配置的地方不是很明确。
