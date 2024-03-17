@@ -147,6 +147,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"authentik-passwordless.md": {
+	id: "authentik-passwordless.md";
+  slug: "authentik-passwordless";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "authentik-sso.md": {
 	id: "authentik-sso.md";
   slug: "authentik-sso";
