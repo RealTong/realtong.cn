@@ -1,7 +1,7 @@
 import type { Site, SocialObjects } from "./types";
 
 export const SITE: Site = {
-  website: "https://www.realtong.cn/", // replace this with your deployed domain
+  website: "https://www.realtong.com/", // replace this with your deployed domain
   author: "RealTong",
   desc: "RealTong's Blog",
   title: "RealTong's Blog",
@@ -32,7 +32,7 @@ export const SOCIALS: SocialObjects = [
   },
   {
     name: "Mail",
-    href: "mailto:i@realtong.cn",
+    href: "mailto:i@realtong.com",
     linkTitle: `Send an email to ${SITE.title}`,
     active: true,
   },
@@ -52,7 +52,7 @@ export const SOCIALS: SocialObjects = [
 
 export const UMAMI = {
   enable: true,
-  baseURL: "https://umami.realtong.cn",
+  baseURL: "https://umami.realtong.com",
   websiteID: "7eb45700-819a-4fc5-bfff-9025e988c1c2",
   username: import.meta.env.UMAMI_USERNAME,
   password: import.meta.env.UMAMI_PASSWORD,
