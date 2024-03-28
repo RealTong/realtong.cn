@@ -1,7 +1,7 @@
 ---
 author: RealTong
-pubDatetime: 2023-09-09T15:22:00Z
-modDatetime: 2023-09-09T15:22:00Z
+pubDatetime: 2023-09-09T15:22:00Z+08:00
+modDatetime: 2023-09-09T15:22:00Z+08:00
 title: 2023 年 Python 包最佳实践
 slug: 2023-python-package-best-practices
 featured: false

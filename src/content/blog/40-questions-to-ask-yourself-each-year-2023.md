@@ -1,7 +1,7 @@
 ---
 author: RealTong
-pubDatetime: 2023-12-31T12:32:00Z
-modDatetime: 2023-12-31T12:32:00Z
+pubDatetime: 2023-12-31T12:32:00Z+08:00
+modDatetime: 2023-12-31T12:32:00Z+08:00
 title: 每年问自己的 40 个问题（2023）
 slug: 40-questions-to-ask-yourself-each-year-2023
 featured: false
