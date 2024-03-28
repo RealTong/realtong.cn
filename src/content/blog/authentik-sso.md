@@ -1,7 +1,7 @@
 ---
 author: RealTong
-pubDatetime: 2024-03-09T01:32:00Z
-modDatetime: 2024-03-09T01:32:00Z
+pubDatetime: 2024-03-09T01:32:00+08:00
+modDatetime: 2024-03-09T01:32:00+08:00
 title: 使用 Authentik 为自部署服务添加 SSO 支持
 slug: authentik-sso
 featured: false

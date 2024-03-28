@@ -1,7 +1,7 @@
 ---
 author: RealTong
-pubDatetime: 2023-12-05T12:15:00Z
-modDatetime: 2023-12-05T12:18:00Z
+pubDatetime: 2023-12-05T12:15:00+08:00
+modDatetime: 2023-12-05T12:18:00+08:00
 title: NextJS 14 新特性总结
 slug: nextjs-14
 featured: false

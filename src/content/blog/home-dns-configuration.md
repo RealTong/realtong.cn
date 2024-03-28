@@ -1,7 +1,7 @@
 ---
 author: RealTong
-pubDatetime: 2024-02-29T15:22:00Z
-modDatetime: 2024-02-29T15:22:00Z
+pubDatetime: 2024-02-29T15:22:00+08:00
+modDatetime: 2024-02-29T15:22:00+08:00
 title: 家庭无污染DNS配置指南
 slug: dns-configuration
 featured: false

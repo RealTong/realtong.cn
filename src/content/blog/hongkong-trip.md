@@ -1,7 +1,7 @@
 ---
 author: RealTong
-pubDatetime: 2023-09-21T23:02:00Z
-modDatetime: 2023-09-21T23:02:00Z
+pubDatetime: 2023-09-21T23:02:00+08:00
+modDatetime: 2023-09-21T23:02:00+08:00
 title: 香港之行
 slug: hongkong-trip
 featured: false

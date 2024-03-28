@@ -1,7 +1,7 @@
 ---
 author: RealTong
-pubDatetime: 2023-04-12T12:15:00Z
-modDatetime: 2023-04-12T12:18:00Z
+pubDatetime: 2023-04-12T12:15:00+08:00
+modDatetime: 2023-04-12T12:18:00+08:00
 title: 自动签发 Google 提供的免费 SSL 证书
 slug: issue-google-public-cert
 featured: false

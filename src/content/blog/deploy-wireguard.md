@@ -1,7 +1,7 @@
 ---
 author: RealTong
-pubDatetime: 2022-07-21T15:22:00Z
-modDatetime: 2022-07-21T15:22:00Z
+pubDatetime: 2022-07-21T15:22:00+08:00
+modDatetime: 2022-07-21T15:22:00+08:00
 title: 使用 WireGuard 部署私人 VPN
 slug: deploy-wireguard
 featured: false

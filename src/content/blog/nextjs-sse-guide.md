@@ -1,7 +1,7 @@
 ---
 author: RealTong
-pubDatetime: 2023-08-29T15:22:00Z
-modDatetime: 2023-08-29T15:22:00Z
+pubDatetime: 2023-08-29T15:22:00+08:00
+modDatetime: 2023-08-29T15:22:00+08:00
 title: SSE 在 NextJS 中的使用指南
 slug: nextjs-sse-guide
 featured: false

@@ -1,7 +1,7 @@
 ---
 author: RealTong
-pubDatetime: 2024-02-17T08:15:00Z
-modDatetime: 2024-02-17T08:18:00Z
+pubDatetime: 2024-02-17T08:15:00+08:00
+modDatetime: 2024-02-17T08:18:00+08:00
 title: 使用 Touch ID 为 sudo 添加指纹验证
 slug: touchid-for-sudo
 featured: false

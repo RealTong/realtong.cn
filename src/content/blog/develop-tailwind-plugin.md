@@ -1,7 +1,7 @@
 ---
 author: RealTong
-pubDatetime: 2023-04-14T15:22:00Z
-modDatetime: 2023-04-14T15:22:00Z
+pubDatetime: 2023-04-14T15:22:00+08:00
+modDatetime: 2023-04-14T15:22:00+08:00
 title: 为 TailwindCSS 开发显示屏幕尺寸插件
 slug: develop-tailwind-plugin
 featured: false
