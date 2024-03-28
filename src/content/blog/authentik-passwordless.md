@@ -1,7 +1,7 @@
 ---
 author: RealTong
-pubDatetime: 2024-03-11T01:32:00Z+08:00
-modDatetime: 2024-03-11T01:32:00Z+08:00
+pubDatetime: 2024-03-11T01:32:00+08:00
+modDatetime: 2024-03-11T01:32:00+08:00
 title: 为 Authentik 添加 Passwordless 支持
 slug: authentik-passwordless
 featured: false
