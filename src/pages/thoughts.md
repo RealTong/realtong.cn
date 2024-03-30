@@ -2,6 +2,9 @@
 layout: ../layouts/ThoughtsLayout.astro
 title: "Thoughts"
 ---
+## At 2024-03-30
+LobeChat Cloud Slogan: 在个体崛起的时代中，为你打造
+
 ## At 2024-03-20
 Github Action 玩法多、反馈快、满足感强，最重要是它缺乏好的调试手段几乎全靠试错，给人一种 “卧槽这一把肯定能行” 的赌徒快感... push 之后盯着 log 等结果的过程和等着庄家开牌一样刺激
 
