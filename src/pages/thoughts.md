@@ -2,6 +2,11 @@
 layout: ../layouts/ThoughtsLayout.astro
 title: "Thoughts"
 ---
+## At 2024-04-03
+- 很多人的成功只是运气好 但是却认为是一切是自己独特的认知和思考所得到的奖赏 🤡
+- 草台班子论永远正确
+- 如果一个人喜欢倒果为因来证明一些东西，那说明这个人确实没啥东西😊 
+    --- From 𝕏
 ## At 2024-03-30
 LobeChat Cloud Slogan: 在个体崛起的时代中，为你打造
 
