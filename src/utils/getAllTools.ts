@@ -1,4 +1,4 @@
-import {Props} from "../components/ToolCard";
+import { Props } from "../components/ToolCard";
 import macbookpro from "../assets/images/tools/macbookpro.png";
 import thunderobot911 from "../assets/images/tools/thunderobot-911.png";
 import ktc from "../assets/images/tools/ktc.png";

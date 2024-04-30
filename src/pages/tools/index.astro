@@ -7,14 +7,13 @@ import Main from "@layouts/Main.astro";
 import getAllTools from "@utils/getAllTools";
 import ToolCard from "@components/ToolCard";
 const tools = await getAllTools();
-
 ---
 
 <Layout title={`工欲善其事，必先利其器`}>
   <Header activeNav="tools" />
   <Main pageTitle="Tools" pageDesc="工欲善其事，必先利其器">
     <ul class="flex flex-wrap items-center gap-2">
-      {tools.map(( tool ) => <ToolCard {...tool}/>)}
+      {tools.map(tool => <ToolCard {...tool} />)}
     </ul>
   </Main>
   <Footer />

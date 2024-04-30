@@ -1,12 +1,12 @@
 # realtong.com
 
 ## Introduction
+
 This is a personal blog created to share my thoughts, experiences, and insights on various topics. The primary focus areas include LLMs, AI, AIGC, Web Development.
 
 The blog is built using [satnaing](https://github.com/satnaing/astro-paper/). and hosted on [Vercel](https://vercel.com/). It features a clean and responsive design, optimized for a great reading experience across different devices.
 
 Whether you're a fellow enthusiast, a curious learner, or just passing by, I hope you find something interesting and valuable on this blog. Feel free to explore, leave feedback, and connect with me through the provided channels.
-
 
 ## Privacy Notice
 

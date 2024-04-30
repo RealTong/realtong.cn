@@ -29,10 +29,10 @@
     display: block;
   }
   html[data-theme="light"] #ToolCard {
-    background-color: #F3F4F6
+    background-color: #f3f4f6;
   }
   html[data-theme="dark"] #ToolCard {
-    background-color: #1a202c
+    background-color: #1a202c;
   }
   body {
     @apply flex min-h-[100svh] flex-col bg-skin-fill font-mono text-skin-base 

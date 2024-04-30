@@ -47,7 +47,7 @@ export const SOCIALS: SocialObjects = [
     href: "https://steamcommunity.com/profiles/76561199000200043/",
     linkTitle: `${SITE.title} on Steam`,
     active: true,
-  }
+  },
 ];
 
 export const UMAMI = {
@@ -56,4 +56,4 @@ export const UMAMI = {
   websiteID: "7eb45700-819a-4fc5-bfff-9025e988c1c2",
   username: import.meta.env.UMAMI_USERNAME,
   password: import.meta.env.UMAMI_PASSWORD,
-}
+};

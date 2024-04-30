@@ -10,10 +10,8 @@ tags:
   - DevOps
   - macOS
   - Security
-description:
-    使用 Touch ID 为 sudo 添加指纹验证
-summary:
-  这篇博客介绍了在 macOS Sonoma (14.0) 上使用 Touch ID 认证 sudo 的方法。苹果提供了开箱即用的支持，只需三行命令即可开启。当使用外接显示器时，无法弹出 Apple Watch 认证，需手动输入密码。若想使用 Apple Watch 认证，可考虑第三方工具 pam-watchid，但需注意系统更新可能导致需要重新设置。
+description: 使用 Touch ID 为 sudo 添加指纹验证
+summary: 这篇博客介绍了在 macOS Sonoma (14.0) 上使用 Touch ID 认证 sudo 的方法。苹果提供了开箱即用的支持，只需三行命令即可开启。当使用外接显示器时，无法弹出 Apple Watch 认证，需手动输入密码。若想使用 Apple Watch 认证，可考虑第三方工具 pam-watchid，但需注意系统更新可能导致需要重新设置。
 ---
 
 在 macOS Sonoma (14.0) 上，Apple 为 「使用Touch ID 认证 sudo」提供了开箱即用的支持，只需3行命令即可开启

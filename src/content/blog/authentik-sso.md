@@ -9,17 +9,14 @@ draft: false
 tags:
   - Tools
   - HomeLab
-description:
-  Authentik 是一个开源的 SSO 解决方案，可以用于为自部署服务添加 SSO 支持。我在内网环境中使用 Authentik 为一些服务添加了 SSO 支持，这里记录一下配置过程。
+description: Authentik 是一个开源的 SSO 解决方案，可以用于为自部署服务添加 SSO 支持。我在内网环境中使用 Authentik 为一些服务添加了 SSO 支持，这里记录一下配置过程。
 ---
-
 
 ## Table of contents
 
-
 ## 什么是 Authentik
 
-[Authentik](http://github.com/goauthentik/authentik/)  是一个开源的认证服务提供商，类似的服务还有 Authing，0auth，Auth0 等。Authentik 提供了一个 Web 界面，可以用于管理用户、登录、授权等功能。
+[Authentik](http://github.com/goauthentik/authentik/) 是一个开源的认证服务提供商，类似的服务还有 Authing，0auth，Auth0 等。Authentik 提供了一个 Web 界面，可以用于管理用户、登录、授权等功能。
 
 ![Authentik Dashboard](@assets/images/posts/authentik-sso/dashboard.png)
 
@@ -28,20 +25,21 @@ description:
 我的 HomeLab 宿主机是一个 N5105 的 All in one，安装了 PVE(Proxmox VE) 虚拟了一个 OpenWRT、Ubuntu server。
 
 其中 Ubuntu server 是我主要用来放服务的地方，全部是由 Docker 容器组成的，部署了 Bitwarden、Portainer、Grafana、HomeAssistant 等服务。
-网络部分：内网 10.0.0.1:53 有一个 DNS 服务器，内网使用 mkcert 签名了一个 *.wst.sh 的证书，用于内网的 HTTPS 访问，并使用了 Nginx 反向代理到各个服务。
+网络部分：内网 10.0.0.1:53 有一个 DNS 服务器，内网使用 mkcert 签名了一个 \*.wst.sh 的证书，用于内网的 HTTPS 访问，并使用了 Nginx 反向代理到各个服务。
 
-| 服务 | 域名 |
-| --- | --- |
-| Bitwarden | pwd.wst.sh |
-| Portainer | docker.wst.sh |
-| Grafana | dash.wst.sh |
-| HomeAssistant | ha.wst.sh |
-| Authentik | auth.wst.sh |
-| Proxmox VE | pve.wst.sh |
+| 服务          | 域名          |
+| ------------- | ------------- |
+| Bitwarden     | pwd.wst.sh    |
+| Portainer     | docker.wst.sh |
+| Grafana       | dash.wst.sh   |
+| HomeAssistant | ha.wst.sh     |
+| Authentik     | auth.wst.sh   |
+| Proxmox VE    | pve.wst.sh    |
 
 目前只有 PVE、Portainer、Grafana 支持 SSO，所以本文为这三个服务添加 SSO 支持。
 
 ## 安装 Authentik
+
 ```yaml
 version: "3.4"
 
@@ -93,9 +91,11 @@ networks:
   service_network:
     external: true
 ```
+
 我在 Docker 里创建了一个 Network（service_network），用于所有容器之间的通信，这样就可以使用容器名来访问其他容器了。
 
 使用上面的 docker-compose.yml 文件，可以创建一个 Authentik 服务。同时可以为 Authentik 服务配置一个 Nginx 反向代理，用于 HTTPS 访问。
+
 ```nginx
 upstream auth {
   zone auth 64k;
@@ -145,9 +145,11 @@ server {
     }
 }
 ```
+
 然后在 DNS 服务器里配置一下，将 auth.wst.sh 指向 Nginx，这样就可以通过 HTTPS 访问 Authentik 了。
 
 ## 配置 Authentik
+
 首先访问 `https://<YOUR DOMAIN>/if/flow/initial-setup/` 进行初始化设置，设置完成后，就可以登录 Authentik 了。
 
 ## 为服务添加 SSO 支持
@@ -155,6 +157,7 @@ server {
 ### Proxmox VE
 
 #### 创建 OAuth2 提供程序
+
 首先创建一个提供程序，在 Authentik 的 Web 界面中，点击 `管理员界面` -> `提供程序` -> 选择`OAuth2/OpenID Provider`，填写 `名称`、`身份验证流程`、`授权流程`。
 其中，身份验证流程就是登录的方式，授权流程就是授权的方式，这里都可以是默认的，之后也可以自己配置 flow。
 
@@ -162,17 +165,20 @@ server {
 `客户端 ID` 和 `客户端密钥` 这两个是 PVE 需要的，所以需要在 PVE 中配置。
 
 #### 创建应用程序
+
 在 Authentik 的 Web 界面中，点击 `管理员界面` -> `应用程序` -> 选择`OAuth2/OpenID Client`，填写 `名称`、`slug`、`提供程序`。
 
 其中 `提供程序` 选择我们刚才创建好的提供程序。
 
 #### 配置 PVE
+
 在 PVE 的 Web 界面中，点击 `数据中心` -> `权限` -> `领域` -> `添加` -> `OpenID 连接服务器`。
 
 发行人 URL 可以在 `提供程序` 的 OpenID 配置 URL 中找到，例如 `https://auth.wst.sh/application/o/proxmox/.well-known/openid-configuration`。但是我们填写的时候只需要填写 `https://auth.wst.sh/application/o/proxmox/`。
 其他的参数 Authentik 的提供程序里都可以看到。
 
 当然，还可以用命令来设置。
+
 ```bash
 pveum realm add Authentik --type openid --issuer-url https://auth.wst.sh/application/o/proxmox/ --client-id '<YOUR CLIENT ID>' --client-key '<YOUR CLIENT KEY>' --username-claim username --autocreate 1
 ```
@@ -188,21 +194,23 @@ pveum realm add Authentik --type openid --issuer-url https://auth.wst.sh/applica
 可以在 `数据中心` -> `权限` -> `添加` 里为刚才登录的用户（username:authentik）添加权限。
 
 ### Portainer
+
 为 Portainer 添加 SSO 支持的步骤和 PVE 类似，只是在创建 OAuth2 提供程序的时候，`重定向 URI/Origin（正则）` 这里写 Portainer 的地址，例如 `https://docker.wst.sh`。
 
 但是 Portainer 配置比 PVE 多一些，需要在 Portainer 的 Web 界面中，点击 `Settings` -> 开启 `Use SSO`。然后选择 OAuth -> `Custom`。很多选择可以和 Authentik 的提供程序中对应起来，这里就比一一讲了。
 
 但是这里的 User identifier 需要填写 `email`，Scopes 需要填写 `email openid profile`。
 
-
 Portainer 也要信任 auth.wst.sh，不然会一直报错登录失败，也不告诉你原因。
 
 其实把 CA 证书放在 /usr/local/share/ca-certificates 下面的 .crt 文件中，然后添加一个环境变量`SSL_CERT_FILE: /usr/local/share/ca-certificates/<YOUR FILENAME>.crt` 重启 Portainer 就可以了。
 
 ### Grafana
+
 配置 Grafana 的 SSO 支持和其他的类似。这里还是只记录 Grafana 端的配置。
 
 Grafana 需要编辑 grafana.ini 文件，添加如下配置。
+
 ```ini
 [server]
 root_url = https://dash.wst.sh # 这里填写访问 Grafana 的地址
@@ -227,6 +235,7 @@ auto_login = false
 这样就可以为 Grafana 添加 SSO 支持了。
 
 ### HomeAssistant
+
 由于 HomeAssistant 并不支持 SSO，但是我们想要用 Authentik 的用户来登录 HomeAssistant，所以我们可以使用 Authentik 提供的 ProxyProvider 来为 HomeAssistant 添加 Authentik 的支持。
 
 1. 我们需要在 Authentik 的 Web 界面中，点击 `管理员界面` -> `提供程序` -> 选择`Proxy Provider`，填写 `名称`、`内部地址`、`外部地址`。
@@ -240,6 +249,7 @@ auto_login = false
 4. 使用 HACS 安装 https://github.com/BeryJu/hass-auth-header 这个插件。在 HACS 添加这个存储库，然后搜索 `auth-header` 安装。
 
 5. 编辑 configuration.yaml 文件，添加如下配置。
+
 ```yaml
 default_config:
 
@@ -252,7 +262,7 @@ script: !include scripts.yaml
 scene: !include scenes.yaml
 # 添加这 2 行
 auth_header:
-    username_header: X-ak-hass-user
+  username_header: X-ak-hass-user
 http:
   use_x_forwarded_for: true
   trusted_proxies:
@@ -262,21 +272,25 @@ http:
     - 10.0.1.0/24
     - 172.0.0.0/8
 ```
+
 6. 编辑 Nginx 配置文件，将 ha 域名指向 Authentik。修改这里的部分
+
 ```diff
 upstream ha {
   zone ha 64k;
-- server homeassistant:8123; 
+- server homeassistant:8123;
 + server authentik-server:9000;
   keepalive 2;
 }
 ```
 
 7. 最后，还需要为 Authentik 的用户添加一个属性
+
 ```yaml
 additionalHeaders:
   X-ak-hass-user: root # root 为 HomeAssistant 的用户名haauth
 ```
 
 ## 总结
+
 Authentik 是一个很好用的 SSO 解决方案，可以为自部署服务添加 SSO 支持。但是配置起来还是有一些麻烦的地方，比如证书的问题，还有一些配置的地方不是很明确。

@@ -9,10 +9,8 @@ draft: false
 tags:
   - Backend
   - Python
-description:
-    2023 年 Python 包最佳实践
-summary:
-    这篇博客介绍了三种流行的 Python 包管理工具：venv、Conda 和 Poetry。venv 简单易用但跨平台存在问题，Conda 内置功能繁多占用空间，而 Poetry 则是更好的选择。Poetry 简洁强大，统一了创建、管理和发布 Python 包的流程，自动记录依赖并锁定版本，避免磁盘空间浪费。推荐开发者尝试使用 Poetry，以获得更愉快、高效的开发体验。
+description: 2023 年 Python 包最佳实践
+summary: 这篇博客介绍了三种流行的 Python 包管理工具：venv、Conda 和 Poetry。venv 简单易用但跨平台存在问题，Conda 内置功能繁多占用空间，而 Poetry 则是更好的选择。Poetry 简洁强大，统一了创建、管理和发布 Python 包的流程，自动记录依赖并锁定版本，避免磁盘空间浪费。推荐开发者尝试使用 Poetry，以获得更愉快、高效的开发体验。
 ---
 
 ## Table of contents
@@ -30,7 +28,6 @@ summary:
 venv 是 pip 自带的虚拟环境及包管理解决方案，开箱即用。
 
 > Test
-> 
 
 使用 venv 通常需要
 
@@ -48,7 +45,7 @@ venv 还有一个缺点，当使用 pip 安装包是不会自动将包写入到`
 
 ### Conda
 
-经常接触数据，模型的朋友对 Conda 一定不陌生。 
+经常接触数据，模型的朋友对 Conda 一定不陌生。
 
 使用 Conda 通常需要以下几步：
 
@@ -72,7 +69,7 @@ Anaconda 中内置了一个 Python 解释器，同时还内置了许多常用的
 
 ## 这些问题，poetry都能解决！
 
-使用 poetry 
+使用 poetry
 
 1. 创建环境：`poetry init`
 2. 安装依赖：`poetry add flask`

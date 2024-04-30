@@ -18,7 +18,10 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
 
 const socialCount = SOCIALS.filter(social => social.active).length;
 
-const myAge = Math.floor((Date.now() - (new Date(2002,7,20)).getTime()) / (365.25 * 24 * 60 * 60 * 1000));
+const myAge = Math.floor(
+  (Date.now() - new Date(2002, 7, 20).getTime()) /
+    (365.25 * 24 * 60 * 60 * 1000)
+);
 ---
 
 <Layout>
@@ -44,13 +47,13 @@ const myAge = Math.floor((Date.now() - (new Date(2002,7,20)).getTime()) / (365.2
       </a>
 
       <p>
-        A {myAge} y.o. Full Stack Developer living in Shanxi, China.
+        A {myAge} y.o. freelancer living in Shanxi, China.
       </p>
-      <p>Focusing on web development, AIGC, and LLM Infra.</p>
-      <br>
+      <p>Focusing on web development, LLM Infra and Web3.</p>
+      <br />
       <p>
-        Read the 
-        <LinkButton 
+        Read the
+        <LinkButton
           className="underline decoration-dashed underline-offset-4 hover:text-skin-accent"
           href="/tools"
         >
@@ -61,7 +64,10 @@ const myAge = Math.floor((Date.now() - (new Date(2002,7,20)).getTime()) / (365.2
           href="/tools"
         >
           Tools
-        </LinkButton> for more info.
+        </LinkButton> for <LinkButton
+          className="underline decoration-dashed underline-offset-4 hover:text-skin-accent"
+          href="/about">more info</LinkButton
+        >.
       </p>
       {
         // only display if at least one social link is enabled

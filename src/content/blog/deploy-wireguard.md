@@ -11,11 +11,10 @@ tags:
   - Network
   - HomeLab
   - WireGuard
-description:
-  WireGuard 是一个快速、现代、安全的 VPN 协议，我将搭建一个贯穿 Home，Office，Cloud 的 WireGuard 网络。
-summary:
-    这篇博文介绍了通过 WireGuard 实现远程开发的方法。作者比较了各种方案，包括向日葵、frp、VPN 等，然后详细介绍了 WireGuard 的优势，如跨平台、简单配置、安全性等。接着，作者提供了配置 WireGuard 的步骤，包括安装、启动、编辑配置文件等，并给出了一些建议，如防火墙设置、端口选择等。最后，作者附上了参考链接，包括自己的配置示例和其他博客链接。
+description: WireGuard 是一个快速、现代、安全的 VPN 协议，我将搭建一个贯穿 Home，Office，Cloud 的 WireGuard 网络。
+summary: 这篇博文介绍了通过 WireGuard 实现远程开发的方法。作者比较了各种方案，包括向日葵、frp、VPN 等，然后详细介绍了 WireGuard 的优势，如跨平台、简单配置、安全性等。接着，作者提供了配置 WireGuard 的步骤，包括安装、启动、编辑配置文件等，并给出了一些建议，如防火墙设置、端口选择等。最后，作者附上了参考链接，包括自己的配置示例和其他博客链接。
 ---
+
 > 从 2023.12.21 穿越回来，文章从我的 Noiton 迁移过来，可能年久失修，但是内容还是有参考价值的。
 
 ## Table of contents
@@ -32,9 +31,8 @@ summary:
 ## **WireGuard是什么**
 
 > WireGuard 是一个易于配置、快速且安全的开源 VPN，它利用了最新的加密技术。目的是提供一种更
-快、更简单、更精简的通用 VPN，它可以轻松地在树莓派这类低端设备到高端服务器上部署。 
-linux.cn
-> 
+> 快、更简单、更精简的通用 VPN，它可以轻松地在树莓派这类低端设备到高端服务器上部署。
+> linux.cn
 
 ## **有什么好处?**
 
@@ -54,76 +52,75 @@ linux.cn
 ### **开始配置 WireGuard**
 
 1. 安装 WireGuard
-    
-    如果你的 Linux 内核 5.6, 则可以使用如下方式
-    
-    ```bash
-    sudo apt update
-    
-    sudo apt install wireguard
-    
-    # 本文是以Ubuntu 22.04为例, 各个发行版大同小异.如ArchLinux可以使用pacman或者AUR, centos可以使用yum
-    ```
-    
+
+   如果你的 Linux 内核 5.6, 则可以使用如下方式
+
+   ```bash
+   sudo apt update
+
+   sudo apt install wireguard
+
+   # 本文是以Ubuntu 22.04为例, 各个发行版大同小异.如ArchLinux可以使用pacman或者AUR, centos可以使用yum
+   ```
+
 2. 开启服务器端口转发
-    
-    ```bash
-    # 查看转发情况 如果返回1,说明IP转发已经开启
-    sudo sysctl net.ipv4.ip_forward
-    
-    # 开发IP转发
-    sudo sysctl -w net.ipv4.ip_forward=1
-    
-    # 如果是IPV6 地址可以使用
-    sudo sysctl net.ipv6.conf.all.forwarding
-    ```
-    
+
+   ```bash
+   # 查看转发情况 如果返回1,说明IP转发已经开启
+   sudo sysctl net.ipv4.ip_forward
+
+   # 开发IP转发
+   sudo sysctl -w net.ipv4.ip_forward=1
+
+   # 如果是IPV6 地址可以使用
+   sudo sysctl net.ipv6.conf.all.forwarding
+   ```
+
 3. 编辑服务端配置文件
-    
-    > WireGuard其实不分Client/Server,在WireGuard中统称为Peer. 所有的节点都是Peer. 但本 文为了方便理解还是区分Client/Server.
-    > 
-    1. 首先生成一对密钥
-        
-        ```bash
-        wg genkey | tee server-priv-key | wg pubkey > server-pub-key
-        # wg genkey 是官方提供的密钥生成工具
-        ```
-        
-    2. 编辑配置
-        
-        WireGuard安装好之后会默认创建一个/etc/wireguard文件夹, 该文件夹所有人为root
-        
-        ```bash
-        # vim /etc/wireguard/wg0/conf
-        
-        [Interface]
-        PrivateKey = 上一步生成的私钥(server-priv-key)
-        Address = 10.0.0.1/24
-        PostUp = iptables -A FORWARD -i wg0 -j ACCEPT; iptables -A FORWARD -o
-        wg0 -j ACCEPT; iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
-        PostDown = iptables -D FORWARD -i wg0 -j ACCEPT; iptables -D FORWARD -o
-        wg0 -j ACCEPT; iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE
-        ListenPort = 51820
-        DNS = 223.5.5.5
-        MTU = 1420
-        
-        # Address为wg内网的IP网段
-        # ListenPort 为UDP监听端口. 接入WireGuard虚拟局域网需要通过此端口,如果使用云服务器需要在管理面板中放行
-        # PostUp 和 PostDown为在启动之前需要做什么 以及 在关闭之后需要做什么 这里为一些iptables规则(需要将eth0更换为实际网络出口名称)
-        ```
-        
-        这样一份Server端的配置就可以启动WireGuard了
-        
-    3. 启动
-        
-        使用 `wg-quick up wg0`命令, WireGuard会自动去`/etc/wireguard`目录下找以wg0开头的.conf文件(说明我们可以同时设置多个WireGuard)
-        
-    4. 验证
-        
-        使用wg会显示当前所有已启动WireGuard接口下Peer的连接信息, 包含流量信息
-        
-        当然我们上面的配置文件中没有添加Peer, 所以你使用wg看不到相关的设备
-        
+
+   > WireGuard其实不分Client/Server,在WireGuard中统称为Peer. 所有的节点都是Peer. 但本 文为了方便理解还是区分Client/Server.
+
+   1. 首先生成一对密钥
+
+      ```bash
+      wg genkey | tee server-priv-key | wg pubkey > server-pub-key
+      # wg genkey 是官方提供的密钥生成工具
+      ```
+
+   2. 编辑配置
+
+      WireGuard安装好之后会默认创建一个/etc/wireguard文件夹, 该文件夹所有人为root
+
+      ```bash
+      # vim /etc/wireguard/wg0/conf
+
+      [Interface]
+      PrivateKey = 上一步生成的私钥(server-priv-key)
+      Address = 10.0.0.1/24
+      PostUp = iptables -A FORWARD -i wg0 -j ACCEPT; iptables -A FORWARD -o
+      wg0 -j ACCEPT; iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+      PostDown = iptables -D FORWARD -i wg0 -j ACCEPT; iptables -D FORWARD -o
+      wg0 -j ACCEPT; iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE
+      ListenPort = 51820
+      DNS = 223.5.5.5
+      MTU = 1420
+
+      # Address为wg内网的IP网段
+      # ListenPort 为UDP监听端口. 接入WireGuard虚拟局域网需要通过此端口,如果使用云服务器需要在管理面板中放行
+      # PostUp 和 PostDown为在启动之前需要做什么 以及 在关闭之后需要做什么 这里为一些iptables规则(需要将eth0更换为实际网络出口名称)
+      ```
+
+      这样一份Server端的配置就可以启动WireGuard了
+
+   3. 启动
+
+      使用 `wg-quick up wg0`命令, WireGuard会自动去`/etc/wireguard`目录下找以wg0开头的.conf文件(说明我们可以同时设置多个WireGuard)
+
+   4. 验证
+
+      使用wg会显示当前所有已启动WireGuard接口下Peer的连接信息, 包含流量信息
+
+      当然我们上面的配置文件中没有添加Peer, 所以你使用wg看不到相关的设备
 
 ### **我们稍微更改一下配置**
 
@@ -215,7 +212,7 @@ AllowedIPs = 10.0.0.5/32, 192.168.1.0/24
 最后也可以使用 Home-Ubuntu 访问位于公司的 `192.168.1.0/24` 网段. 可以试试 `ping 192.168.1.2`
 
 **最终的网络拓扑如下**
-*使用虚线表示 WireGuard*
+_使用虚线表示 WireGuard_
 
 ![网络拓扑图](@assets/images/posts/deploy-wireguard/network-diagram.png)
 
@@ -231,4 +228,4 @@ AllowedIPs = 10.0.0.5/32, 192.168.1.0/24
 
 My WireGuard config : [WireGuard Conf Example](https://github.com/RealTong/Profile/tree/main/Conf/WireGuard/)
 
-procustodibus blog :  [WIREGUARD POINT TO SITE CONFIGURATION](https://www.procustodibus.com/blog/2020/11/wireguard-point-to-site-config/)
+procustodibus blog : [WIREGUARD POINT TO SITE CONFIGURATION](https://www.procustodibus.com/blog/2020/11/wireguard-point-to-site-config/)
