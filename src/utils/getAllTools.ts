@@ -21,12 +21,20 @@ import jetbrains from "../assets/images/tools/jetbrains.png";
 import githubcopilot from "../assets/images/tools/Github-Copilot.png";
 import chatgptplus from "../assets/images/tools/chatgpt-plus.png";
 import buick from "../assets/images/tools/buick.png";
+import nvidia from "../assets/images/tools/4090.png";
+import rt380 from "../assets/images/tools/rt380.png";
+import xboxcontroller from "../assets/images/tools/xbox-controller.png";
 
 const tools: Props[] = [
   {
     name: 'MacBook Pro 14" 2021',
     type: "Devices",
     image: macbookpro.src,
+  },
+  {
+    name: "nvidia RTX 4090 FE",
+    type: "Devices",
+    image: nvidia.src,
   },
   {
     name: "THUNDEROBOT 911",
@@ -54,7 +62,7 @@ const tools: Props[] = [
     image: pixel4xl.src,
   },
   {
-    name: "Apple Watch S 9",
+    name: "Apple Watch S9",
     type: "Devices",
     image: applewatchs9.src,
   },
@@ -104,6 +112,11 @@ const tools: Props[] = [
     image: canysign4typec.src,
   },
   {
+    name: "xbox Elite Controller 2",
+    type: "Devices",
+    image: xboxcontroller.src,
+  },
+  {
     name: "Yubikey 5C NFC",
     type: "Accessories",
     image: yubikey5cnfc.src,
@@ -132,6 +145,11 @@ const tools: Props[] = [
     name: "Buick Verano Pro",
     type: "Devices",
     image: buick.src,
+  },
+  {
+    name: "XDS RT380",
+    type: "Devices",
+    image: rt380.src,
   },
 ];
 
