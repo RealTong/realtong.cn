@@ -217,6 +217,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"osaka-2024-08-26-trip.md": {
+	id: "osaka-2024-08-26-trip.md";
+  slug: "osaka20240826-trip";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "touchid-for-sudo.md": {
 	id: "touchid-for-sudo.md";
   slug: "touchid-for-sudo";
