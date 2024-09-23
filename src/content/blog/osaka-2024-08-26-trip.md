@@ -1,7 +1,7 @@
 ---
 author: RealTong
-pubDatetime: 2024-08-26T23:02:00+08:00
-modDatetime: 2024-08-26T23:02:00+08:00
+pubDatetime: 2024-09-05T23:02:00+08:00
+modDatetime: 2024-09-05T23:02:00+08:00
 title: 2024-08-26 大阪 & 奈良
 slug: osaka20240826-trip
 featured: false
